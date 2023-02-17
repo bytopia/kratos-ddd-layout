@@ -1,27 +1,27 @@
-package service
+package rpc
 
 import (
 	"context"
+	"github.com/go-kratos/kratos-layout/internal/app"
 
 	v1 "github.com/go-kratos/kratos-layout/api/helloworld/v1"
-	"github.com/go-kratos/kratos-layout/internal/biz"
 )
 
 // GreeterService is a greeter service.
 type GreeterService struct {
 	v1.UnimplementedGreeterServer
 
-	uc *biz.GreeterUsecase
+	uc *app.GreeterUsecase
 }
 
 // NewGreeterService new a greeter service.
-func NewGreeterService(uc *biz.GreeterUsecase) *GreeterService {
+func NewGreeterService(uc *app.GreeterUsecase) *GreeterService {
 	return &GreeterService{uc: uc}
 }
 
 // SayHello implements helloworld.GreeterServer.
 func (s *GreeterService) SayHello(ctx context.Context, in *v1.HelloRequest) (*v1.HelloReply, error) {
-	g, err := s.uc.CreateGreeter(ctx, &biz.Greeter{Hello: in.Name})
+	g, err := s.uc.CreateGreeter(ctx, &app.Greeter{Hello: in.Name})
 	if err != nil {
 		return nil, err
 	}

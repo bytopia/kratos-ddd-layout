@@ -1,4 +1,4 @@
-package biz
+package app
 
 import "github.com/google/wire"
 

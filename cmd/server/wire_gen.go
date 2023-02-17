@@ -7,12 +7,9 @@
 package main
 
 import (
-	"github.com/go-kratos/kratos-layout/internal/biz"
-	"github.com/go-kratos/kratos-layout/internal/conf"
-	"github.com/go-kratos/kratos-layout/internal/data"
-	"github.com/go-kratos/kratos-layout/internal/server"
-	"github.com/go-kratos/kratos-layout/internal/service"
-
+	"github.com/go-kratos/kratos-layout/internal/infra/conf"
+	data2 "github.com/go-kratos/kratos-layout/internal/infra/data"
+	server2 "github.com/go-kratos/kratos-layout/internal/infra/server"
 	"github.com/go-kratos/kratos/v2"
 	"github.com/go-kratos/kratos/v2/log"
 )
@@ -21,15 +18,15 @@ import (
 
 // wireApp init kratos application.
 func wireApp(confServer *conf.Server, confData *conf.Data, logger log.Logger) (*kratos.App, func(), error) {
-	dataData, cleanup, err := data.NewData(confData, logger)
+	dataData, cleanup, err := data2.NewData(confData, logger)
 	if err != nil {
 		return nil, nil, err
 	}
-	greeterRepo := data.NewGreeterRepo(dataData, logger)
-	greeterUsecase := biz.NewGreeterUsecase(greeterRepo, logger)
-	greeterService := service.NewGreeterService(greeterUsecase)
-	grpcServer := server.NewGRPCServer(confServer, greeterService, logger)
-	httpServer := server.NewHTTPServer(confServer, greeterService, logger)
+	greeterRepo := data2.NewGreeterRepo(dataData, logger)
+	greeterUsecase := usecase.NewGreeterUsecase(greeterRepo, logger)
+	greeterService := grpc.NewGreeterService(greeterUsecase)
+	grpcServer := server2.NewGRPCServer(confServer, greeterService, logger)
+	httpServer := server2.NewHTTPServer(confServer, greeterService, logger)
 	app := newApp(logger, grpcServer, httpServer)
 	return app, func() {
 		cleanup()
