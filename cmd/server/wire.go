@@ -6,9 +6,9 @@
 package main
 
 import (
-	"github.com/go-kratos/kratos-layout/internal/infra/conf"
-	"github.com/go-kratos/kratos-layout/internal/infra/data"
-	"github.com/go-kratos/kratos-layout/internal/infra/server"
+	"github.com/bytopia/kratos-ddd-template/internal/infra/conf"
+	"github.com/bytopia/kratos-ddd-template/internal/infra/data"
+	"github.com/bytopia/kratos-ddd-template/internal/infra/server"
 	"github.com/go-kratos/kratos/v2"
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/google/wire"

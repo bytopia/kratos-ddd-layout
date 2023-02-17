@@ -1,7 +1,7 @@
 package api
 
 import (
-	"github.com/go-kratos/kratos-layout/internal/api/rpc"
+	"github.com/bytopia/kratos-ddd-template/internal/api/rpc"
 	"github.com/google/wire"
 )
 

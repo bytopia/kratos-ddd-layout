@@ -2,8 +2,8 @@ package data
 
 import (
 	"context"
-	"github.com/go-kratos/kratos-layout/internal/app"
-	"github.com/go-kratos/kratos-layout/internal/domain"
+	"github.com/bytopia/kratos-ddd-template/internal/app"
+	"github.com/bytopia/kratos-ddd-template/internal/domain"
 
 	"github.com/go-kratos/kratos/v2/log"
 )

@@ -2,7 +2,7 @@ package main
 
 import (
 	"flag"
-	"github.com/go-kratos/kratos-layout/internal/infra/conf"
+	"github.com/bytopia/kratos-ddd-template/internal/infra/conf"
 	"os"
 
 	"github.com/go-kratos/kratos/v2"

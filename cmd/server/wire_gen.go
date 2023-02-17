@@ -7,9 +7,9 @@
 package main
 
 import (
-	"github.com/go-kratos/kratos-layout/internal/infra/conf"
-	data2 "github.com/go-kratos/kratos-layout/internal/infra/data"
-	server2 "github.com/go-kratos/kratos-layout/internal/infra/server"
+	"github.com/bytopia/kratos-ddd-template/internal/infra/conf"
+	data2 "github.com/bytopia/kratos-ddd-template/internal/infra/data"
+	server2 "github.com/bytopia/kratos-ddd-template/internal/infra/server"
 	"github.com/go-kratos/kratos/v2"
 	"github.com/go-kratos/kratos/v2/log"
 )

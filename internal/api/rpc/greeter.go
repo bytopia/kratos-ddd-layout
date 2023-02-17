@@ -2,10 +2,10 @@ package rpc
 
 import (
 	"context"
-	"github.com/go-kratos/kratos-layout/internal/app"
-	"github.com/go-kratos/kratos-layout/internal/domain"
+	"github.com/bytopia/kratos-ddd-template/internal/app"
+	"github.com/bytopia/kratos-ddd-template/internal/domain"
 
-	v1 "github.com/go-kratos/kratos-layout/contract/helloworld/v1"
+	v1 "github.com/bytopia/kratos-ddd-template/contract/helloworld/v1"
 )
 
 // GreeterService is a greeter service.

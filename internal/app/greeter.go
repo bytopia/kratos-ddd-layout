@@ -2,9 +2,9 @@ package app
 
 import (
 	"context"
-	"github.com/go-kratos/kratos-layout/internal/domain"
+	"github.com/bytopia/kratos-ddd-template/internal/domain"
 
-	v1 "github.com/go-kratos/kratos-layout/proto/helloworld/v1"
+	v1 "github.com/bytopia/kratos-ddd-template/contract/helloworld/v1"
 
 	"github.com/go-kratos/kratos/v2/errors"
 	"github.com/go-kratos/kratos/v2/log"

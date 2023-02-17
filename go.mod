@@ -1,4 +1,4 @@
-module github.com/go-kratos/kratos-layout
+module github.com/bytopia/kratos-ddd-template
 
 go 1.17
 
