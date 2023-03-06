@@ -1,16 +1,17 @@
 package server
 
 import (
-	v1 "github.com/bytopia/kratos-ddd-template/contract/helloworld/v1"
-	"github.com/bytopia/kratos-ddd-template/internal/api/rpc"
+	v1 "github.com/bytopia/kratos-ddd-template/api/helloworld/v1"
+	"github.com/bytopia/kratos-ddd-template/internal/adapter/grpc"
 	"github.com/bytopia/kratos-ddd-template/internal/infra/conf"
-	"github.com/go-kratos/kratos/v2/log"
+	"github.com/bytopia/kratos-ddd-template/internal/pkg/logging"
 	"github.com/go-kratos/kratos/v2/middleware/recovery"
 	"github.com/go-kratos/kratos/v2/transport/http"
 )
 
 // NewHTTPServer new an HTTP server.
-func NewHTTPServer(c *conf.Server, greeter *rpc.GreeterService, logger log.Logger) *http.Server {
+func NewHTTPServer(bc *conf.Bootstrap, greeter *grpc.GreeterService, l logging.Adapter) *http.Server {
+	c := bc.Server
 	var opts = []http.ServerOption{
 		http.Middleware(
 			recovery.Recovery(),

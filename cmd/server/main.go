@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"github.com/bytopia/kratos-ddd-template/internal/infra/conf"
+	"github.com/bytopia/kratos-ddd-template/internal/pkg/logging"
 	"os"
 
 	"github.com/go-kratos/kratos/v2"
@@ -32,13 +33,13 @@ func init() {
 	flag.StringVar(&flagconf, "conf", "../../configs", "config path, eg: -conf config.yaml")
 }
 
-func newApp(logger log.Logger, gs *grpc.Server, hs *http.Server) *kratos.App {
+func newApp(la logging.Adapter, gs *grpc.Server, hs *http.Server) *kratos.App {
 	return kratos.New(
 		kratos.ID(id),
 		kratos.Name(Name),
 		kratos.Version(Version),
 		kratos.Metadata(map[string]string{}),
-		kratos.Logger(logger),
+		kratos.Logger(la),
 		kratos.Server(
 			gs,
 			hs,
@@ -73,7 +74,7 @@ func main() {
 		panic(err)
 	}
 
-	app, cleanup, err := wireApp(bc.Server, bc.Data, logger)
+	app, cleanup, err := wireApp(&bc, logging.Adapter(logger))
 	if err != nil {
 		panic(err)
 	}

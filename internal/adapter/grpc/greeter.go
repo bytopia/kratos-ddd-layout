@@ -1,28 +1,28 @@
-package rpc
+package grpc
 
 import (
 	"context"
-	"github.com/bytopia/kratos-ddd-template/internal/app"
-	"github.com/bytopia/kratos-ddd-template/internal/domain"
+	"github.com/bytopia/kratos-ddd-template/internal/app/usecase"
+	"github.com/bytopia/kratos-ddd-template/internal/domain/entity"
 
-	v1 "github.com/bytopia/kratos-ddd-template/contract/helloworld/v1"
+	v1 "github.com/bytopia/kratos-ddd-template/api/helloworld/v1"
 )
 
 // GreeterService is a greeter service.
 type GreeterService struct {
 	v1.UnimplementedGreeterServer
 
-	uc *app.GreeterUsecase
+	uc *usecase.GreeterUsecase
 }
 
 // NewGreeterService new a greeter service.
-func NewGreeterService(uc *app.GreeterUsecase) *GreeterService {
+func NewGreeterService(uc *usecase.GreeterUsecase) *GreeterService {
 	return &GreeterService{uc: uc}
 }
 
 // SayHello implements helloworld.GreeterServer.
 func (s *GreeterService) SayHello(ctx context.Context, in *v1.HelloRequest) (*v1.HelloReply, error) {
-	g, err := s.uc.CreateGreeter(ctx, &domain.Greeter{Hello: in.Name})
+	g, err := s.uc.CreateGreeter(ctx, &entity.Greeter{Hello: in.Name})
 	if err != nil {
 		return nil, err
 	}

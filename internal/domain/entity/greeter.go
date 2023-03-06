@@ -1,4 +1,4 @@
-package domain
+package entity
 
 // Greeter is a Greeter model.
 type Greeter struct {

@@ -1,0 +1,62 @@
+syntax = "proto3";
+package goservices.conf.v1;
+
+option go_package = "github.com/bytopia/kratos-ddd-template/internal/pkg/proto/conf;confpb";
+
+import "google/protobuf/duration.proto";
+
+
+message Logging {
+  message Lumberjack {
+    int32  max_size_mb = 1;
+    int32 max_backups = 2;
+    int32  max_age_days = 3;
+    bool compress = 4;
+  }
+
+  string level = 1;
+  string output = 2;
+  string default_file = 3;
+  string error_file = 4;
+  Lumberjack lumberjack = 5;
+}
+
+message HTTP {
+  string network = 1;
+  string addr = 2;
+  google.protobuf.Duration timeout = 3;
+}
+message GRPC {
+  string network = 1;
+  string addr = 2;
+  google.protobuf.Duration timeout = 3;
+}
+message WebSocket {
+  string network = 1;
+  string addr = 2;
+  google.protobuf.Duration timeout = 3;
+  string path = 4;
+  google.protobuf.Duration read_wait = 5;
+  int64 max_message_size = 6;
+  int64 message_buffer_size = 7;
+  google.protobuf.Duration ping_interval = 8;
+}
+message Database {
+  string driver = 1;
+  string source = 2;
+}
+
+message Redis {
+  string network = 1;
+  string addr = 2;
+  string password = 3;
+  int32 database = 4;
+  google.protobuf.Duration read_timeout = 5;
+  google.protobuf.Duration write_timeout = 6;
+}
+
+message Kafka {
+  repeated string addrs = 1;
+  string topic = 2;
+  string group = 3;
+}
