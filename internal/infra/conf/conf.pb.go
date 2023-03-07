@@ -7,7 +7,7 @@
 package conf
 
 import (
-	conf "github.com/bytopia/kratos-ddd-template/internal/pkg/proto/conf"
+	conf "github.com/bytopia/kratos-ddd-layout/internal/pkg/proto/conf"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	durationpb "google.golang.org/protobuf/types/known/durationpb"

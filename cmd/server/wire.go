@@ -6,11 +6,11 @@
 package main
 
 import (
-	"github.com/bytopia/kratos-ddd-template/internal/adapter"
-	"github.com/bytopia/kratos-ddd-template/internal/app"
-	"github.com/bytopia/kratos-ddd-template/internal/infra"
-	"github.com/bytopia/kratos-ddd-template/internal/infra/conf"
-	"github.com/bytopia/kratos-ddd-template/pkg/logging"
+	"github.com/bytopia/kratos-ddd-layout/internal/adapter"
+	"github.com/bytopia/kratos-ddd-layout/internal/app"
+	"github.com/bytopia/kratos-ddd-layout/internal/infra"
+	"github.com/bytopia/kratos-ddd-layout/internal/infra/conf"
+	"github.com/bytopia/kratos-ddd-layout/pkg/logging"
 	"github.com/go-kratos/kratos/v2"
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/google/wire"

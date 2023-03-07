@@ -2,7 +2,7 @@ package repo
 
 import (
 	"context"
-	"github.com/bytopia/kratos-ddd-template/internal/domain/entity"
+	"github.com/bytopia/kratos-ddd-layout/internal/domain/entity"
 )
 
 // GreeterRepo is a Greater repo.

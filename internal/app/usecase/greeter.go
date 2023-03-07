@@ -2,11 +2,11 @@ package usecase
 
 import (
 	"context"
-	"github.com/bytopia/kratos-ddd-template/internal/domain/entity"
-	"github.com/bytopia/kratos-ddd-template/internal/domain/repo"
-	"github.com/bytopia/kratos-ddd-template/pkg/logging"
+	"github.com/bytopia/kratos-ddd-layout/internal/domain/entity"
+	"github.com/bytopia/kratos-ddd-layout/internal/domain/repo"
+	"github.com/bytopia/kratos-ddd-layout/pkg/logging"
 
-	v1 "github.com/bytopia/kratos-ddd-template/api/helloworld/v1"
+	v1 "github.com/bytopia/kratos-ddd-layout/api/helloworld/v1"
 
 	"github.com/go-kratos/kratos/v2/errors"
 )

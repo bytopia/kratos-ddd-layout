@@ -1,7 +1,7 @@
 package app
 
 import (
-	"github.com/bytopia/kratos-ddd-template/internal/app/usecase"
+	"github.com/bytopia/kratos-ddd-layout/internal/app/usecase"
 	"github.com/google/wire"
 )
 

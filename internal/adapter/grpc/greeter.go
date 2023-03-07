@@ -2,10 +2,10 @@ package grpc
 
 import (
 	"context"
-	"github.com/bytopia/kratos-ddd-template/internal/app/usecase"
-	"github.com/bytopia/kratos-ddd-template/internal/domain/entity"
+	"github.com/bytopia/kratos-ddd-layout/internal/app/usecase"
+	"github.com/bytopia/kratos-ddd-layout/internal/domain/entity"
 
-	v1 "github.com/bytopia/kratos-ddd-template/api/helloworld/v1"
+	v1 "github.com/bytopia/kratos-ddd-layout/api/helloworld/v1"
 )
 
 // GreeterService is a greeter service.

@@ -1,10 +1,10 @@
 package server
 
 import (
-	v1 "github.com/bytopia/kratos-ddd-template/api/helloworld/v1"
-	rpc "github.com/bytopia/kratos-ddd-template/internal/adapter/grpc"
-	"github.com/bytopia/kratos-ddd-template/internal/infra/conf"
-	"github.com/bytopia/kratos-ddd-template/pkg/logging"
+	v1 "github.com/bytopia/kratos-ddd-layout/api/helloworld/v1"
+	rpc "github.com/bytopia/kratos-ddd-layout/internal/adapter/grpc"
+	"github.com/bytopia/kratos-ddd-layout/internal/infra/conf"
+	"github.com/bytopia/kratos-ddd-layout/pkg/logging"
 	"github.com/go-kratos/kratos/v2/middleware/recovery"
 	"github.com/go-kratos/kratos/v2/transport/grpc"
 )

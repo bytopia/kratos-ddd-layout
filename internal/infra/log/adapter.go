@@ -1,7 +1,7 @@
 package log
 
 import (
-	"github.com/bytopia/kratos-ddd-template/pkg/logging"
+	"github.com/bytopia/kratos-ddd-layout/pkg/logging"
 	"github.com/go-kratos/kratos/v2/log"
 )
 

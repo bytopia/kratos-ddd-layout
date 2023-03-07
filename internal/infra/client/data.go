@@ -1,7 +1,7 @@
 package client
 
 import (
-	"github.com/bytopia/kratos-ddd-template/pkg/logging"
+	"github.com/bytopia/kratos-ddd-layout/pkg/logging"
 )
 
 // Data .

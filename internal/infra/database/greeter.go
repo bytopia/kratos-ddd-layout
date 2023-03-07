@@ -2,10 +2,10 @@ package database
 
 import (
 	"context"
-	"github.com/bytopia/kratos-ddd-template/internal/domain/entity"
-	"github.com/bytopia/kratos-ddd-template/internal/domain/repo"
-	"github.com/bytopia/kratos-ddd-template/internal/infra/client"
-	"github.com/bytopia/kratos-ddd-template/pkg/logging"
+	"github.com/bytopia/kratos-ddd-layout/internal/domain/entity"
+	"github.com/bytopia/kratos-ddd-layout/internal/domain/repo"
+	"github.com/bytopia/kratos-ddd-layout/internal/infra/client"
+	"github.com/bytopia/kratos-ddd-layout/pkg/logging"
 )
 
 type greeterRepo struct {

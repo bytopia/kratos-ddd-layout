@@ -2,9 +2,9 @@ package main
 
 import (
 	"flag"
-	"github.com/bytopia/kratos-ddd-template/internal/infra/conf"
-	log2 "github.com/bytopia/kratos-ddd-template/internal/infra/log"
-	"github.com/bytopia/kratos-ddd-template/internal/infra/log/zaplog"
+	"github.com/bytopia/kratos-ddd-layout/internal/infra/conf"
+	log2 "github.com/bytopia/kratos-ddd-layout/internal/infra/log"
+	"github.com/bytopia/kratos-ddd-layout/internal/infra/log/zaplog"
 	"github.com/go-kratos/kratos/v2/log"
 	"os"
 

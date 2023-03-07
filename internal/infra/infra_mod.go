@@ -1,9 +1,9 @@
 package infra
 
 import (
-	"github.com/bytopia/kratos-ddd-template/internal/infra/client"
-	"github.com/bytopia/kratos-ddd-template/internal/infra/database"
-	"github.com/bytopia/kratos-ddd-template/internal/infra/server"
+	"github.com/bytopia/kratos-ddd-layout/internal/infra/client"
+	"github.com/bytopia/kratos-ddd-layout/internal/infra/database"
+	"github.com/bytopia/kratos-ddd-layout/internal/infra/server"
 	"github.com/google/wire"
 )
 
