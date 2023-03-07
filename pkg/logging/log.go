@@ -1,6 +1,7 @@
 package logging
 
 type LoggerAdapter interface {
+	With(kv ...interface{}) LoggerAdapter
 	Debug(a ...interface{})
 	Debugf(format string, a ...interface{})
 	Debugw(keyvals ...interface{})
