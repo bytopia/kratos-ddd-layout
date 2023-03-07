@@ -1,5 +1,5 @@
 syntax = "proto3";
-package goservices.conf.v1;
+package conf;
 
 option go_package = "github.com/bytopia/kratos-ddd-template/internal/pkg/proto/conf;confpb";
 

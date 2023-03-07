@@ -3,14 +3,14 @@ package main
 import (
 	"flag"
 	"github.com/bytopia/kratos-ddd-template/internal/infra/conf"
-	"github.com/bytopia/kratos-ddd-template/internal/pkg/logging"
+	log2 "github.com/bytopia/kratos-ddd-template/internal/infra/log"
+	"github.com/bytopia/kratos-ddd-template/internal/infra/log/zaplog"
+	"github.com/go-kratos/kratos/v2/log"
 	"os"
 
 	"github.com/go-kratos/kratos/v2"
 	"github.com/go-kratos/kratos/v2/config"
 	"github.com/go-kratos/kratos/v2/config/file"
-	"github.com/go-kratos/kratos/v2/log"
-	"github.com/go-kratos/kratos/v2/middleware/tracing"
 	"github.com/go-kratos/kratos/v2/transport/grpc"
 	"github.com/go-kratos/kratos/v2/transport/http"
 
@@ -33,13 +33,13 @@ func init() {
 	flag.StringVar(&flagconf, "conf", "../../configs", "config path, eg: -conf config.yaml")
 }
 
-func newApp(la logging.Adapter, gs *grpc.Server, hs *http.Server) *kratos.App {
+func newApp(log log.Logger, gs *grpc.Server, hs *http.Server) *kratos.App {
 	return kratos.New(
 		kratos.ID(id),
 		kratos.Name(Name),
 		kratos.Version(Version),
 		kratos.Metadata(map[string]string{}),
-		kratos.Logger(la),
+		kratos.Logger(log),
 		kratos.Server(
 			gs,
 			hs,
@@ -49,15 +49,6 @@ func newApp(la logging.Adapter, gs *grpc.Server, hs *http.Server) *kratos.App {
 
 func main() {
 	flag.Parse()
-	logger := log.With(log.NewStdLogger(os.Stdout),
-		"ts", log.DefaultTimestamp,
-		"caller", log.DefaultCaller,
-		"service.id", id,
-		"service.name", Name,
-		"service.version", Version,
-		"trace.id", tracing.TraceID(),
-		"span.id", tracing.SpanID(),
-	)
 	c := config.New(
 		config.WithSource(
 			file.NewSource(flagconf),
@@ -74,7 +65,9 @@ func main() {
 		panic(err)
 	}
 
-	app, cleanup, err := wireApp(&bc, logging.Adapter(logger))
+	logger := zaplog.NewLogger(bc.Logging, false, "debug")
+	loggerAdapter := log2.NewLoggerAdapter(logger)
+	app, cleanup, err := wireApp(&bc, logger, loggerAdapter)
 	if err != nil {
 		panic(err)
 	}

@@ -1,13 +1,12 @@
 package stdlog
 
 import (
-	"github.com/bytopia/kratos-ddd-template/internal/pkg/logging"
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/go-kratos/kratos/v2/middleware/tracing"
 	"os"
 )
 
-func NewAdapter(serviceId, serviceName, serviceVersion string) logging.Adapter {
+func NewLogger(serviceId, serviceName, serviceVersion string) log.Logger {
 	l := log.NewStdLogger(os.Stdout)
 	return log.With(
 		l,

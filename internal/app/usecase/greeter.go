@@ -4,7 +4,7 @@ import (
 	"context"
 	"github.com/bytopia/kratos-ddd-template/internal/domain/entity"
 	"github.com/bytopia/kratos-ddd-template/internal/domain/repo"
-	"github.com/bytopia/kratos-ddd-template/internal/pkg/logging"
+	"github.com/bytopia/kratos-ddd-template/pkg/logging"
 
 	v1 "github.com/bytopia/kratos-ddd-template/api/helloworld/v1"
 
@@ -19,16 +19,16 @@ var (
 // GreeterUsecase is a Greeter usecase.
 type GreeterUsecase struct {
 	repo repo.GreeterRepo
-	log  *logging.Logger
+	log  logging.LoggerAdapter
 }
 
 // NewGreeterUsecase new a Greeter usecase.
-func NewGreeterUsecase(repo repo.GreeterRepo, lad logging.Adapter) *GreeterUsecase {
-	return &GreeterUsecase{repo: repo, log: logging.NewLogger(lad)}
+func NewGreeterUsecase(repo repo.GreeterRepo, log logging.LoggerAdapter) *GreeterUsecase {
+	return &GreeterUsecase{repo: repo, log: log}
 }
 
 // CreateGreeter creates a Greeter, and returns the new Greeter.
 func (uc *GreeterUsecase) CreateGreeter(ctx context.Context, g *entity.Greeter) (*entity.Greeter, error) {
-	uc.log.WithContext(ctx).Infof("CreateGreeter: %v", g.Hello)
+	uc.log.Info("CreateGreeter: %v", g.Hello)
 	return uc.repo.Save(ctx, g)
 }

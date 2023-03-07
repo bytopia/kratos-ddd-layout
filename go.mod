@@ -1,6 +1,6 @@
 module github.com/bytopia/kratos-ddd-template
 
-go 1.17
+go 1.19
 
 require (
 	github.com/go-kratos/kratos/contrib/log/zap/v2 v2.0.0-20230227131608-c65f823c38de

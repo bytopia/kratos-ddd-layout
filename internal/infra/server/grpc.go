@@ -4,13 +4,13 @@ import (
 	v1 "github.com/bytopia/kratos-ddd-template/api/helloworld/v1"
 	rpc "github.com/bytopia/kratos-ddd-template/internal/adapter/grpc"
 	"github.com/bytopia/kratos-ddd-template/internal/infra/conf"
-	"github.com/bytopia/kratos-ddd-template/internal/pkg/logging"
+	"github.com/bytopia/kratos-ddd-template/pkg/logging"
 	"github.com/go-kratos/kratos/v2/middleware/recovery"
 	"github.com/go-kratos/kratos/v2/transport/grpc"
 )
 
 // NewGRPCServer new a gRPC server.
-func NewGRPCServer(bc *conf.Bootstrap, greeter *rpc.GreeterService, la logging.Adapter) *grpc.Server {
+func NewGRPCServer(bc *conf.Bootstrap, greeter *rpc.GreeterService, log logging.LoggerAdapter) *grpc.Server {
 	c := bc.Server
 	var opts = []grpc.ServerOption{
 		grpc.Middleware(

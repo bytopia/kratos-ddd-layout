@@ -10,12 +10,13 @@ import (
 	"github.com/bytopia/kratos-ddd-template/internal/app"
 	"github.com/bytopia/kratos-ddd-template/internal/infra"
 	"github.com/bytopia/kratos-ddd-template/internal/infra/conf"
-	"github.com/bytopia/kratos-ddd-template/internal/pkg/logging"
+	"github.com/bytopia/kratos-ddd-template/pkg/logging"
 	"github.com/go-kratos/kratos/v2"
+	"github.com/go-kratos/kratos/v2/log"
 	"github.com/google/wire"
 )
 
 // wireApp init kratos application.
-func wireApp(*conf.Bootstrap, logging.Adapter) (*kratos.App, func(), error) {
+func wireApp(*conf.Bootstrap, log.Logger, logging.LoggerAdapter) (*kratos.App, func(), error) {
 	panic(wire.Build(adapter.ProviderSet, infra.ProviderSet, app.ProviderSet, newApp))
 }

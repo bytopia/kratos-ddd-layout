@@ -1,7 +1,6 @@
 package zaplog
 
 import (
-	"github.com/bytopia/kratos-ddd-template/internal/pkg/logging"
 	confpb "github.com/bytopia/kratos-ddd-template/internal/pkg/proto/conf"
 	kzap "github.com/go-kratos/kratos/contrib/log/zap/v2"
 	"github.com/go-kratos/kratos/v2/log"
@@ -22,7 +21,7 @@ const (
 	defaultCompress   = true
 )
 
-func NewLogger(c *confpb.Logging, devMode bool, flagLevel string) logging.Adapter {
+func NewLogger(c *confpb.Logging, devMode bool, flagLevel string) log.Logger {
 	output := outputConsole
 	if c.Output == outputFile {
 		output = outputFile

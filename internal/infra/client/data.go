@@ -1,6 +1,8 @@
 package client
 
-import "github.com/bytopia/kratos-ddd-template/internal/pkg/logging"
+import (
+	"github.com/bytopia/kratos-ddd-template/pkg/logging"
+)
 
 // Data .
 type Data struct {
@@ -8,9 +10,9 @@ type Data struct {
 }
 
 // NewData .
-func NewData(la logging.Adapter) (*Data, func(), error) {
+func NewData(log logging.LoggerAdapter) (*Data, func(), error) {
 	cleanup := func() {
-		logging.NewLogger(la).Info("closing the data resources")
+		log.Info("closing the data resources")
 	}
 	return &Data{}, cleanup, nil
 }

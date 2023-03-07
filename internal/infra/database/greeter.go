@@ -5,19 +5,19 @@ import (
 	"github.com/bytopia/kratos-ddd-template/internal/domain/entity"
 	"github.com/bytopia/kratos-ddd-template/internal/domain/repo"
 	"github.com/bytopia/kratos-ddd-template/internal/infra/client"
-	"github.com/bytopia/kratos-ddd-template/internal/pkg/logging"
+	"github.com/bytopia/kratos-ddd-template/pkg/logging"
 )
 
 type greeterRepo struct {
 	data *client.Data
-	log  *logging.Logger
+	log  logging.LoggerAdapter
 }
 
 // NewGreeterRepo .
-func NewGreeterRepo(data *client.Data, adapter logging.Adapter) repo.GreeterRepo {
+func NewGreeterRepo(data *client.Data, log logging.LoggerAdapter) repo.GreeterRepo {
 	return &greeterRepo{
 		data: data,
-		log:  logging.NewLogger(adapter),
+		log:  log,
 	}
 }
 

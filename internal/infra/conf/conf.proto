@@ -3,11 +3,14 @@ package kratos.api;
 
 option go_package = "github.com/bytopia/kratos-ddd-template/internal/infra/conf;conf";
 
+import "conf/conf.proto";
+
 import "google/protobuf/duration.proto";
 
 message Bootstrap {
   Server server = 1;
   Data data = 2;
+  conf.Logging logging = 3;
 }
 
 message Server {
