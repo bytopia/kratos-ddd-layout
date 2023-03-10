@@ -1,7 +1,7 @@
-package adapter
+package api
 
 import (
-	"github.com/bytopia/kratos-ddd-layout/internal/adapter/grpc"
+	"github.com/bytopia/kratos-ddd-layout/internal/api/grpc"
 	"github.com/google/wire"
 )
 

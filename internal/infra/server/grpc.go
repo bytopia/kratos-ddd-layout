@@ -2,7 +2,7 @@ package server
 
 import (
 	v1 "github.com/bytopia/kratos-ddd-layout/api/helloworld/v1"
-	rpc "github.com/bytopia/kratos-ddd-layout/internal/adapter/grpc"
+	rpc "github.com/bytopia/kratos-ddd-layout/internal/api/grpc"
 	"github.com/bytopia/kratos-ddd-layout/internal/infra/conf"
 	"github.com/bytopia/kratos-ddd-layout/pkg/logging"
 	"github.com/go-kratos/kratos/v2/middleware/recovery"

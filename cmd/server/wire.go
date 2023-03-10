@@ -6,7 +6,6 @@
 package main
 
 import (
-	"github.com/bytopia/kratos-ddd-layout/internal/adapter"
 	"github.com/bytopia/kratos-ddd-layout/internal/app"
 	"github.com/bytopia/kratos-ddd-layout/internal/infra"
 	"github.com/bytopia/kratos-ddd-layout/internal/infra/conf"
@@ -18,5 +17,5 @@ import (
 
 // wireApp init kratos application.
 func wireApp(*conf.Bootstrap, log.Logger, logging.LoggerAdapter) (*kratos.App, func(), error) {
-	panic(wire.Build(adapter.ProviderSet, infra.ProviderSet, app.ProviderSet, newApp))
+	panic(wire.Build(_interface.ProviderSet, infra.ProviderSet, app.ProviderSet, newApp))
 }
